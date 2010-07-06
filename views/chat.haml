@@ -1,26 +1,26 @@
 !!! 5
 %html{html_attrs}
-%head
-  %title Web Sockets Chat Demo
-  %script{:type => 'text/javascript', :src => "http://js.pusherapp.com/1.4/pusher.min.js"}
-  %script{:type => 'text/javascript', :src => "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"}
-  %script{:type => 'text/javascript', :src => "/javascripts/chat.js"}
-  %link{:href => "/stylesheets/chat.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+  %head
+    %title Web Sockets Chat Demo
+    %script{:type => 'text/javascript', :src => "http://js.pusherapp.com/1.4/pusher.min.js"}
+    %script{:type => 'text/javascript', :src => "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"}
+    %script{:type => 'text/javascript', :src => "/javascripts/chat.js"}
+    %link{:href => "/stylesheets/chat.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
   
-%body
-  %h1#header Web Sockets Chat Demo
-  %ul#messages
+  %body
+    %h1#header Web Sockets Chat Demo
+    %ul#messages
     
-  %form{:action => '/', :method => 'POST', :id => 'message_form'}
-    .field
-      %label{:for => 'message_name'} Your Name
-      %input{:type => 'text', :id => 'message_name', :name => 'message[name]'}
-    .field
-      %label{:for => 'message_body'} Message
-      %textarea{:id => 'message_body', :name => 'message[body]'}
-    .submit
-      %button{:type => 'submit', :id => 'submit_button'} Submit
+    %form{:action => '/', :method => 'POST', :id => 'message_form'}
+      .field
+        %label{:for => 'message_name'} Your Name
+        %input{:type => 'text', :id => 'message_name', :name => 'message[name]'}
+      .field
+        %label{:for => 'message_body'} Message
+        %textarea{:id => 'message_body', :name => 'message[body]'}
+      .submit
+        %button{:type => 'submit', :id => 'submit_button'} Submit
     
-    %p#challenge
-      Right now this is a pretty lame chat client - 
-      how will you use Web Sockets to take it to the next level?
+      %p#challenge
+        Right now this is a pretty lame chat client - 
+        how will you use Web Sockets to take it to the next level?
