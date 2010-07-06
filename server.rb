@@ -1,9 +1,12 @@
 require 'rubygems'
+require 'bundler'
+Bundler.setup
+
 require 'sinatra'
 require 'haml'
 require 'pusher'
 require 'json'
-
+ 
 Pusher.app_id = '1350'
 Pusher.key = '2f26b8b3ea8bbda5ec02'
 Pusher.secret = '6d6063afe5941083e5da'
