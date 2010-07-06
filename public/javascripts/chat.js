@@ -1,3 +1,8 @@
+$(function() {
+  WebSocketDemo.init('demo_chat');
+});
+
+
 var WebSocketDemo = {
   init: function(channel) {
     // initialize Pusher
@@ -46,7 +51,3 @@ var WebSocketDemo = {
 function sanitize(str) {
   return str.replace(/</ig, '&lt;').replace(/>/ig, '&gt;');
 }
-
-$(function() {
-  WebSocketDemo.init('demo_chat');
-});

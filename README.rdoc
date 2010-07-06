@@ -1,0 +1,61 @@
+= Web Sockets Demo
+
+== What is this?
+
+This super-simple application is a demo that accompanies my 
+<em>Introduction to HTML5 Web Sockets</em> talk. This is intended
+to serve as a launching point for you to play around with
+Web sockets powered by Pusher (http://pusherapp.com).
+
+== How do I get started?
+
+I'm working with the understanding that you have your favorite flavor
+of Ruby installed and working. Assuming that's true...
+
+1. Clone this repository:
+
+  $ git clone git://github.com/chrisjpowers/web_sockets_demo.git
+  $ cd web_sockets_demo
+
+2. Make sure you have Bundler installed and Rubygems is up to date:
+
+  $ gem install bundler
+  $ gem update --system
+
+3. Install dependencies with Bundler:
+
+  $ bundle install
+
+4. Start the server:
+
+  $ ruby server.rb
+
+5. Check out the demo at http://localhost:4567
+
+== That worked, now what?
+
+By default, the app is pushing and receiving messages on the shared
+Pusher channel 'demo_chat'. If you want to use your own 'private' 
+channel instead, rename the channel to your own unique string. You 
+will need to change this line in <tt>server.rb</tt>:
+
+  CHANNEL = 'demo_chat'
+
+... and this line in <tt>public/javascripts/chat.js</tt>:
+
+  WebSocketDemo.init('demo_chat');
+
+For simplicity sake I decided to run this demo using Sinatra/HAML/jQuery,
+but you could certainly implement this in Rails/ERB/Prototype if you
+were so inclined.
+
+== Um, a little help?
+
+Just in case you're not familiar with one of these libraries, 
+here are some docs:
+
+* Pusher: http://pusherapp.com/docs
+* Sinatra: http://www.sinatrarb.com/
+* HAML: http://haml-lang.com/docs.html
+* jQuery: http://docs.jquery.com
+* Bundler: http://gembundler.com/
