@@ -1,5 +1,6 @@
 $(function() {
   WebSocketDemo.init('demo_chat');
+  DefaultMessage.init();
 });
 
 
@@ -21,10 +22,11 @@ var WebSocketDemo = {
   
   // 'this' is NOT WebSocketDemo
   on_message_posted: function(data) {
-    WebSocketDemo.display_message(data.name, data.body)
+    WebSocketDemo.display_message(data.name, data.body);
   },
   
   display_message: function(name, body) {
+    $(this).trigger('displaying_message', [name, body]);
     this.message_list.prepend("<li><strong>" + sanitize(name) + 
                               ":</strong> " + sanitize(body) + "</li>");
   },
@@ -48,6 +50,24 @@ var WebSocketDemo = {
   }
 };
 
+var DefaultMessage = {
+  init: function() {
+    this.blank_notice = $("<li class='blank'>There are no messages...</li>");
+    $("#messages").append(this.blank_notice);
+    $(WebSocketDemo).bind('displaying_message', this.on_displaying_message);
+  },
+  
+  on_displaying_message: function(event, name, body) {
+    DefaultMessage.blank_notice.remove();
+  }
+};
+
 function sanitize(str) {
   return str.replace(/</ig, '&lt;').replace(/>/ig, '&gt;');
+}
+
+function scoped(fn, scope) {
+  return function () {
+    return fn.apply(scope, arguments);
+  }
 }

@@ -5,9 +5,10 @@
   %script{:type => 'text/javascript', :src => "http://js.pusherapp.com/1.4/pusher.min.js"}
   %script{:type => 'text/javascript', :src => "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"}
   %script{:type => 'text/javascript', :src => "/javascripts/chat.js"}
+  %link{:href => "/stylesheets/chat.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
   
 %body
-  %h1 Web Sockets Chat Demo
+  %h1#header Web Sockets Chat Demo
   %ul#messages
     
   %form{:action => '/', :method => 'POST', :id => 'message_form'}
@@ -19,3 +20,7 @@
       %textarea{:id => 'message_body', :name => 'message[body]'}
     .submit
       %button{:type => 'submit', :id => 'submit_button'} Submit
+    
+    %p#challenge
+      Right now this is a pretty lame chat client - 
+      how will you use Web Sockets to take it to the next level?
