@@ -12,25 +12,25 @@ Web sockets powered by Pusher (http://pusherapp.com).
 I'm working with the understanding that you have your favorite flavor
 of Ruby installed and working. Assuming that's true...
 
-* Clone this repository:
+Clone this repository:
 
   $ git clone git://github.com/chrisjpowers/web_sockets_demo.git
   $ cd web_sockets_demo
 
-* Make sure Rubygems is up to date and you have Bundler installed:
+Make sure Rubygems is up to date and you have Bundler installed:
 
   $ gem update --system
   $ gem install bundler
 
-* Install dependencies with Bundler:
+Install dependencies with Bundler:
 
   $ bundle install
 
-* Start the server:
+Start the server:
 
   $ ruby server.rb
 
-* Check out the demo at http://localhost:4567
+Check out the demo at http://localhost:4567
 
 == That worked, now what?
 
