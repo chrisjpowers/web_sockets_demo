@@ -12,27 +12,32 @@ Web sockets powered by Pusher (http://pusherapp.com).
 I'm working with the understanding that you have your favorite flavor
 of Ruby installed and working. Assuming that's true...
 
-1. Clone this repository:
+* Clone this repository:
 
   $ git clone git://github.com/chrisjpowers/web_sockets_demo.git
   $ cd web_sockets_demo
 
-2. Make sure you have Bundler installed and Rubygems is up to date:
+* Make sure Rubygems is up to date and you have Bundler installed:
 
-  $ gem install bundler
   $ gem update --system
+  $ gem install bundler
 
-3. Install dependencies with Bundler:
+* Install dependencies with Bundler:
 
   $ bundle install
 
-4. Start the server:
+* Start the server:
 
   $ ruby server.rb
 
-5. Check out the demo at http://localhost:4567
+* Check out the demo at http://localhost:4567
 
 == That worked, now what?
+
+Start playing! This is obviously quite bare bones, but it should give
+you a starting point. Either try adding a new feature or two to your
+chat client, or blow away the chat client code entirely and create
+your own socket powered mini-app!
 
 By default, the app is pushing and receiving messages on the shared
 Pusher channel 'demo_chat'. If you want to use your own 'private' 
@@ -55,7 +60,7 @@ Just in case you're not familiar with one of these libraries,
 here are some docs:
 
 * Pusher: http://pusherapp.com/docs
-* Sinatra: http://www.sinatrarb.com/
+* Sinatra: http://www.sinatrarb.com
 * HAML: http://haml-lang.com/docs.html
 * jQuery: http://docs.jquery.com
-* Bundler: http://gembundler.com/
+* Bundler: http://gembundler.com
