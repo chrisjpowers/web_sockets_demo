@@ -1,36 +1,41 @@
 $(function() {
-  WebSocketDemo.init('demo_chat');
+  // If you change the Pusher API key and/or channel name,
+  // make sure that you also change it in server.rb
+  var PUSHER_API_KEY = '2f26b8b3ea8bbda5ec02';
+  var PUSHER_CHANNEL_NAME = 'demo_chat'
+
+  WebSocketDemo.init(PUSHER_API_KEY, PUSHER_CHANNEL_NAME);
   DefaultMessage.init();
 });
 
 
 var WebSocketDemo = {
-  init: function(channel) {
+  init: function(key, channel) {
     // initialize Pusher
     WebSocket.__swfLocation = "/javascripts/support/WebSocketMain.swf";
-    this.pusher = new Pusher('2f26b8b3ea8bbda5ec02', channel);
+    this.pusher = new Pusher(key, channel);
     this.pusher.bind('message_posted', this.on_message_posted);
-    
+
     this.message_list = $("#messages");
     this.message_form = $("#message_form");
     this.message_form.submit(this.on_form_submit);
-    
+
     this.name_field = $('#message_name');
     this.body_field = $('#message_body');
     this.submit_button = $('#submit_button');
   },
-  
+
   // 'this' is NOT WebSocketDemo
   on_message_posted: function(data) {
     WebSocketDemo.display_message(data.name, data.body);
   },
-  
+
   display_message: function(name, body) {
     $(this).trigger('displaying_message', [name, body]);
-    this.message_list.prepend("<li><strong>" + sanitize(name) + 
+    this.message_list.prepend("<li><strong>" + sanitize(name) +
                               ":</strong> " + sanitize(body) + "</li>");
   },
-  
+
   // 'this' is the form element
   on_form_submit: function(event) {
     if(WebSocketDemo.name_field.val() == '') {
@@ -56,7 +61,7 @@ var DefaultMessage = {
     $("#messages").append(this.blank_notice);
     $(WebSocketDemo).bind('displaying_message', this.on_displaying_message);
   },
-  
+
   on_displaying_message: function(event, name, body) {
     DefaultMessage.blank_notice.remove();
   }
